@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
 export const lightTheme = {
-  body: "#333",
+  body: "#fff",
   fontColor: "#333",
   buttonColor: "#efefef",
 };
 
 export const darkTheme = {
-  body: "#2f2a3a",
   fontColor: "#ffffff",
+  body: "#2f2a3a",
   buttonColor: "2f2a3a",
 };
 
@@ -20,9 +20,9 @@ export const Main = styled.div`
   margin: 0 auto;
   width: 259px;
   text-align: center;
-  background: #2f2c3b;
   border: 10px solid #101116;
   height: 600px;
+  border-radius: 5px;
   background: ${(props) => props.theme.body};
 `;
 
@@ -47,7 +47,7 @@ export const Form = styled.form`
     letter-spacing: 1px;
     margin-top: 75px;
     margin-left: -10px;
-    color: #f2f2f2;
+    color: ${(props) => props.theme.fontColor};
     background: ${(props) => props.theme.body};
   }
 
