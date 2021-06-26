@@ -1,20 +1,35 @@
 import React, { useState } from "react";
-import "./App.css";
-import { Main, Button, Form, Keypad, ButtonClear, ButtonBack } from "./styles";
+import {
+  Main,
+  Button,
+  Form,
+  Keypad,
+  ClearButton,
+  BackspaceButton,
+  EqualButton,
+  lightTheme,
+  darkTheme,
+  ButtonFun,
+} from "./styles";
+import { ThemeProvider } from "styled-components";
 
 function App() {
-  const [result, setResult] = useState("52121");
+  const [result, setResult] = useState("");
+  const [operation, setOperation] = useState("");
 
   const handleClick = (e) => {
-    setResult(result.concat(e.target.name));
+    // setResult(result.concat(e.target.name));
+    setOperation(operation.concat(e.target.name));
   };
 
   const clear = () => {
     setResult("");
+    setOperation("");
   };
 
   const backspace = () => {
-    setResult(result.slice(0, result.length - 1)); // Ou somente -1
+    // setResult(result.slice(0, result.length - 1)); // Ou somente -1
+    setOperation(operation.slice(0, -1));
   };
 
   const calculate = () => {
@@ -25,35 +40,42 @@ function App() {
     }
   };
 
+  const [theme, setTheme] = useState("light");
+
+  const themeToggler = () => {
+    theme === "light" ? setTheme("dark") : setTheme("light");
+  };
+
   return (
-    <>
+    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <Main>
         <Form>
           <input type="text" value={result} />
+          <input type="text" value={operation} />
         </Form>
 
         <Keypad>
-          <ButtonClear onClick={clear} id="clear">
+          <ClearButton onClick={clear} id>
             AC
-          </ButtonClear>
-          <Button onClick={backspace} id="backspace">
+          </ClearButton>
+          <BackspaceButton onClick={backspace} id="backspace">
             C
-          </Button>
-          <ButtonBack name="/" onClick={handleClick}>
+          </BackspaceButton>
+          <ButtonFun name="/" onClick={handleClick}>
             &divide;
-          </ButtonBack>
+          </ButtonFun>
           <Button name="7" onClick={handleClick}>
             7
           </Button>
           <Button name="8" onClick={handleClick}>
             8
           </Button>
-          <Button name="9" onClick={handleClick}>
+          <ButtonFun name="9" onClick={handleClick}>
             9
-          </Button>
-          <ButtonBack name="*" onClick={handleClick}>
+          </ButtonFun>
+          <ButtonFun name="*" onClick={handleClick}>
             &times;
-          </ButtonBack>
+          </ButtonFun>
           <Button name="4" onClick={handleClick}>
             4
           </Button>
@@ -63,9 +85,9 @@ function App() {
           <Button name="6" onClick={handleClick}>
             6
           </Button>
-          <ButtonBack name="-" onClick={handleClick}>
+          <ButtonFun name="-" onClick={handleClick}>
             &ndash;
-          </ButtonBack>
+          </ButtonFun>
           <Button name="1" onClick={handleClick}>
             1
           </Button>
@@ -75,21 +97,22 @@ function App() {
           <Button name="3" onClick={handleClick}>
             3
           </Button>
-          <ButtonBack name="+" onClick={handleClick}>
+          <ButtonFun name="+" onClick={handleClick}>
             +
-          </ButtonBack>
+          </ButtonFun>
           <Button name="0" onClick={handleClick}>
             0
           </Button>
           <Button name="." onClick={handleClick}>
             .
           </Button>
-          <Button onClick={calculate} id="result">
+          <Button onClick={themeToggler}></Button>
+          <EqualButton onClick={calculate} id="result">
             =
-          </Button>
+          </EqualButton>
         </Keypad>
       </Main>
-    </>
+    </ThemeProvider>
   );
 }
 

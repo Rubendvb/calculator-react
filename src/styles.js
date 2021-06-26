@@ -1,26 +1,38 @@
 import styled from "styled-components";
 
+export const lightTheme = {
+  body: "#333",
+  fontColor: "#333",
+  buttonColor: "#efefef",
+};
+
+export const darkTheme = {
+  body: "#2f2a3a",
+  fontColor: "#ffffff",
+  buttonColor: "2f2a3a",
+};
+
 export const Main = styled.div`
   top: 50%;
   left: 50%;
   position: absolute;
   transform: translate(-50%, -50%);
   margin: 0 auto;
-  width: 256px;
+  width: 259px;
   text-align: center;
-  border: none;
   background: #2f2c3b;
-  border-radius: 5px;
-  height: 520px;
+  border: 10px solid #101116;
+  height: 600px;
+  background: ${(props) => props.theme.body};
 `;
 
 export const Button = styled.button`
   margin: 5px;
   border: none;
-  border-radius: 5px;
+  border-radius: 50%;
   cursor: pointer;
-  background: #2f2c3b;
-  color: #55478b;
+  background: ${(props) => props.theme.buttonColor};
+  color: ${(props) => props.theme.fontColor};
   font-weight: 500;
 `;
 
@@ -36,6 +48,7 @@ export const Form = styled.form`
     margin-top: 75px;
     margin-left: -10px;
     color: #f2f2f2;
+    background: ${(props) => props.theme.body};
   }
 
   input + input {
@@ -53,10 +66,20 @@ export const Keypad = styled.div`
   grid-auto-rows: minmax(60px, auto);
 `;
 
-export const ButtonClear = styled.button`
-  color: #55478b;
+export const ClearButton = styled.button`
+  font-size: 20px;
+  grid-column: 1/3;
+  grid-row: 1;
+  color: #7d5dff;
+  margin: 5px;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  background: ${(props) => props.theme.body};
 `;
 
-export const ButtonBack = styled.button`
-  color: #55478b;
+export const EqualButton = styled.button`
+  grid-column: 4/5;
 `;
+export const BackspaceButton = styled.button``;
+export const ButtonFun = styled(Button)``;
