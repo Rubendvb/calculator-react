@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import { Main, Button, Form, Keypad, ButtonHighlight } from "./styles";
+import { Main, Button, Form, Keypad, ButtonClear, ButtonBack } from "./styles";
 
 function App() {
   const [result, setResult] = useState("52121");
@@ -33,15 +33,15 @@ function App() {
         </Form>
 
         <Keypad>
-          <ButtonHighlight onClick={clear} id="clear">
+          <ButtonClear onClick={clear} id="clear">
             AC
-          </ButtonHighlight>
-          <ButtonHighlight onClick={backspace} id="backspace">
+          </ButtonClear>
+          <Button onClick={backspace} id="backspace">
             C
-          </ButtonHighlight>
-          <ButtonHighlight name="/" onClick={handleClick}>
+          </Button>
+          <ButtonBack name="/" onClick={handleClick}>
             &divide;
-          </ButtonHighlight>
+          </ButtonBack>
           <Button name="7" onClick={handleClick}>
             7
           </Button>
@@ -51,9 +51,9 @@ function App() {
           <Button name="9" onClick={handleClick}>
             9
           </Button>
-          <ButtonHighlight name="*" onClick={handleClick}>
+          <ButtonBack name="*" onClick={handleClick}>
             &times;
-          </ButtonHighlight>
+          </ButtonBack>
           <Button name="4" onClick={handleClick}>
             4
           </Button>
@@ -63,9 +63,9 @@ function App() {
           <Button name="6" onClick={handleClick}>
             6
           </Button>
-          <ButtonHighlight name="-" onClick={handleClick}>
+          <ButtonBack name="-" onClick={handleClick}>
             &ndash;
-          </ButtonHighlight>
+          </ButtonBack>
           <Button name="1" onClick={handleClick}>
             1
           </Button>
@@ -75,18 +75,18 @@ function App() {
           <Button name="3" onClick={handleClick}>
             3
           </Button>
-          <ButtonHighlight name="+" onClick={handleClick}>
+          <ButtonBack name="+" onClick={handleClick}>
             +
-          </ButtonHighlight>
+          </ButtonBack>
           <Button name="0" onClick={handleClick}>
             0
           </Button>
           <Button name="." onClick={handleClick}>
             .
           </Button>
-          <ButtonHighlight onClick={calculate} id="result">
+          <Button onClick={calculate} id="result">
             =
-          </ButtonHighlight>
+          </Button>
         </Keypad>
       </Main>
     </>

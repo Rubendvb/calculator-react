@@ -20,7 +20,7 @@ export const Button = styled.button`
   border-radius: 5px;
   cursor: pointer;
   background: #2f2c3b;
-  color: #ffffff;
+  color: #55478b;
   font-weight: 500;
 `;
 
@@ -53,6 +53,10 @@ export const Keypad = styled.div`
   grid-auto-rows: minmax(60px, auto);
 `;
 
-export const ButtonHighlight = styled(Button)`
-  background: #bfbfc1;
+export const ButtonClear = styled.button`
+  color: #55478b;
+`;
+
+export const ButtonBack = styled.button`
+  color: #55478b;
 `;
