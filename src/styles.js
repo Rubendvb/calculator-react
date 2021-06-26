@@ -80,6 +80,24 @@ export const ClearButton = styled.button`
 
 export const EqualButton = styled.button`
   grid-column: 4/5;
+  grid-row: 5;
+  color: #7d5dff;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  background: ${(props) => props.theme.buttonColor};
 `;
-export const BackspaceButton = styled.button``;
-export const ButtonFun = styled(Button)``;
+
+export const BackspaceButton = styled.button`
+  color: ${(props) => props.theme.fontColor};
+  margin: 5px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  background: ${(props) => props.theme.buttonColor};
+`;
+
+export const ButtonFun = styled(Button)`
+  background: #efefef;
+  color: #000;
+`;
