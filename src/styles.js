@@ -11,6 +11,7 @@ export const Main = styled.div`
   border: none;
   background: #2f2c3b;
   border-radius: 5px;
+  height: 520px;
 `;
 
 export const Button = styled.button`
@@ -27,7 +28,6 @@ export const Form = styled.form`
   input {
     height: 30px;
     width: 214px;
-    background: #24202e;
     border: 0px;
     text-align: right;
     font-size: 35px;
@@ -35,6 +35,7 @@ export const Form = styled.form`
     letter-spacing: 1px;
     margin-top: 75px;
     margin-left: -10px;
+    color: #f2f2f2;
   }
 
   input + input {
@@ -50,4 +51,8 @@ export const Keypad = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: minmax(60px, auto);
+`;
+
+export const ButtonHighlight = styled(Button)`
+  background: #bfbfc1;
 `;

@@ -43,7 +43,3 @@ button:focus,
 button:active {
   outline: none;
 }
-
-.highlight {
-  background: #bfbfc1;
-}
